@@ -2,6 +2,8 @@
 
 A Next.js application with complete authentication system and project management features using route-based API architecture.
 
+test changes
+
 ## 🚀 Features
 
 - **User Authentication**: Register, login, and logout functionality
