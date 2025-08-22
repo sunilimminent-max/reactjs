@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Add the sliding button effect using ::after pseudo-element */
+.btn-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-out;
+  z-index: 1;
+}
+
+.btn-slide:hover::after {
+  transform: translateX(0);
+}
+
+.btn-slide span {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-slide:hover span {
+  color: #084d92;
+}
+
+/* Dynamic button color changes */
+.btn-hover-blue {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-hover-blue::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #084d92;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.btn-hover-blue:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-hover-blue span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.btn-hover-blue:hover span {
+  color: white;
+}
+
+.btn-hover-white {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 1px 1px #084d92;
+}
+
+.btn-hover-white::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  color: #084d92;
+  transform: translateX(-101%);
+  transition: transform 0.6s ease-out;
+  z-index: 1;
+}
+
+.btn-hover-white:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-hover-white span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.btn-hover-white:hover span {
+  color: #084d92;
+}
+
+/* Section sliding effects */
+.section-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(8, 77, 146, 0.1), transparent);
+  transition: left 0.8s ease-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section-slide:hover::before {
+  left: 100%;
+}
+
+.section-slide-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero section specific sliding effect */
+.hero-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, transparent, rgba(139, 92, 246, 0.05), transparent);
+  transition: right 1s ease-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-slide:hover::after {
+  right: 100%;
+}
+
+/* History section specific sliding effect */
+.history-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.history-slide::before {
+  content: '';
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, transparent, rgba(59, 130, 246, 0.08), transparent);
+  transition: bottom 0.8s ease-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.history-slide:hover::before {
+  bottom: 100%;
+}
+
+/* Dropdown Menu Animations - IPM Style */
+.dropdown-enter {
+  opacity: 0;
+  transform: translateY(-15px) scale(0.9);
+  transform-origin: top center;
+}
+
+.dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dropdown-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transform-origin: top center;
+}
+
+.dropdown-exit-active {
+  opacity: 0;
+  transform: translateY(-15px) scale(0.9);
+  transition: all 0.25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+/* Hover effects for dropdown items */
+.dropdown-item-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdown-item-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.4s ease-out;
+  z-index: 0;
+}
+
+.dropdown-item-hover:hover::before {
+  left: 100%;
+}
+
+/* Smooth icon animations */
+.icon-bounce {
+  transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.icon-bounce:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Header scroll effect */
+.header-scroll {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.d-flex {
+  display: flex;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.align-items-center {
+  align-items: center;
+}

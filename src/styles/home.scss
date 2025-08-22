@@ -1,0 +1,66 @@
+.home-section-1 {
+    background: linear-gradient(315.46deg, #bbe5f9 0%, rgba(249, 249, 255, .26) 100%);
+    transition: margin-top .4s ease;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+
+  
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+        radial-gradient(circle at 15% 25%, rgba(187, 229, 249, 0.4) 0%, transparent 60%),
+        radial-gradient(circle at 85% 75%, rgba(187, 229, 249, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 45% 85%, rgba(187, 229, 249, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 70% 15%, rgba(187, 229, 249, 0.2) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .grid {
+        position: relative;
+        z-index: 10;
+    }
+    
+    .relative {
+        position: relative;
+        z-index: 5;
+    }
+    
+    // Enhanced button styling to match image
+    button {
+        border-radius: 28px;
+        transition: all 0.3s ease;
+        
+        &:last-child {
+        border-color: #1e40af;
+        color: #1e40af;
+        
+        &:hover {
+            background: rgba(30, 64, 175, 0.05);
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+        }
+    }
+
+
+    .right-circle {
+        top: 300px;
+        right: 40px;
+    }
+    .profesional-body__logos {
+        display: flex;
+        gap: 99px;
+        padding-bottom: 25px;
+    }
+    .left-circle {
+        top: 19px;
+        left: 65px;
+    }
+}
